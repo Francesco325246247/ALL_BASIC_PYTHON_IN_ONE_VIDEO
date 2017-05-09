@@ -1,15 +1,9 @@
 
-# ----------------- \!/ IMPORTANT \!/
-# THIS IS A JUPYTER NOTEBOOK PLEASE SEND ME A MSG IF YOU WANT THE ORIGINAL FILE.
-# THIS CODE MAY SUBJECTS TO CHANGES AT ANY TIME AND THE CODE HOSTED HERE COULD NOT BE UPDATED 
-# PLEASE CHECK WWW.MIDNWARELAB.ORG FOR THE MOST UPDATE VERSION OR DROP ME A MSG. 
-# THIS CODE IS USED FOR MY VIDEO ON YOUTUBE "ALL PYTHON IN ONE VIDEO", IF YOU HAVE SUGGESTIONS
-# PLEASE SEND ME A MESSAGE, IF YOU WANNA COLLABORATE PLEASE SEND ME A MSG.(I AM A VERY CHILL GUY)
-# ----------------- \!/ IMPORTANT \!/
+# coding: utf-8
 
 # In[ ]:
 
-#------------operations------------
+#------------Basic Operators------------
 
 #sum
 print(2 + 1)
@@ -20,7 +14,7 @@ print(3 - 2)
 #multiplication
 print(2 * 2)
 
-#power
+#Power
 print(2 ** 2)
 
 #divisions
@@ -28,14 +22,33 @@ print(4 / 2.0)
 print(int(4 / 2))
 print(type(str(4/2)))
 
-#mod
+#Modulus
 print(5 % 2)
 print(5 % 1)
 
 
 # In[ ]:
 
-#------------variable type------------
+# ------------ Assignment Operators ------------ 
+
+#equal
+=
+#increment
++=
+#decrement
+-=
+#multiply
+*=
+#divide
+(=)
+#exponent
+**=
+
+
+
+# In[ ]:
+
+#------------Assigning Values to Variables and variable type------------
 
 #int
 integer_var = 12
@@ -61,11 +74,23 @@ print(a>b or b==b)
 
 # In[ ]:
 
-#------------Print------------
+#------------Data Type Conversion-------------
+
+#int(x) Cast an int value
+#str(x) Cast a string value
+#eval(str) Evaluate the string and return an object
+#tuple(s) Convert a read-only touples
+#list(s) Convert it to a list
+#set(s) Convert it to a set
+#dict(d) Creates a dictionary. d must be a sequence of (key,value) tuples.
+
+
+# In[ ]:
+
+#------------Print method------------
 x = 'I am a string'
 print(x)
 
-#formatting strings
 age  = 19
 sex = "girl"
 country = "USA"
@@ -85,9 +110,61 @@ string[:5]
 
 # In[ ]:
 
+#------------String formatting: basic methods------------
+
+website = "http://www.MINdwareLaB.org"
+
+print(website.upper())
+print(website.lower())
+print(website.split("."))
+print(website.split("//"))
+print(website.split("www"))
+print(website.split(".")[1])
+print(website.split(".")[2])
+
+
+# In[ ]:
+
+#------------String formatting: string escape -----------
+
+
+#\\	Backslash (\)
+print("\\")
+
+
+#\'	Single quote (')
+print("\'")
+
+
+#\"	Double quote (")
+print("\"mindwarelab\"")
+
+
+#\b	ASCII Backspace (BS)
+print("Mindwarelab\b")
+
+
+#\n	ASCII Linefeed (LF)
+print("Mindware\nlab")
+
+
+#\t	ASCII Horizontal Tab (TAB)
+print("\tmindwarelab")
+
+
+# In[ ]:
+
+#------------List vs Touples vs Dictionaries memorandum------------
+list1 = [] #this is a list
+touples1 = () #this is a touple
+disctionaries = {} #this is a dictionary
+ 
+
+
+# In[ ]:
+
 #------------List------------
-#enumerated list 0,1,2,3,4
-#mixed data type
+#Similar to the arrays, but it can contain mixed data type
 
 list1 = ["USA", 99, "guns"]
 list2 = [44,77,87.7,55]
@@ -154,8 +231,9 @@ set1
 
 #------------Touples------------
 
-#touples are immutable 
+#touples are read-only 
 tup1 = ("moon", "venus", 2017, 2009)
+print(tup1)
 
 #Operation on list of touples
 num = [(0,1),(1,1),(0,0)]
@@ -164,16 +242,7 @@ for a,b in num: print(a)
 
 # In[ ]:
 
-#------------List vs Touples vs Dictionaries------------
-list1 = []
-touples1 = ()
-disctionaries = {}
- 
-
-
-# In[ ]:
-
-#------------if elif else------------
+#-----------Logic------------
 
 a = 10
 b = 20
@@ -188,7 +257,7 @@ else:
 
 # In[ ]:
 
-#------------for while range------------
+#------------Repeated actions------------
 
 age_set=[33,56,78,92,11]
 for numbers in age_set:
@@ -268,21 +337,6 @@ print(reduce((lambda x, y: x*y), list_of_number))
 
 # In[ ]:
 
-#------------String formatting------------
-
-website = "http://www.MINdwareLaB.org"
-
-print(website.upper())
-print(website.lower())
-print(website.split("."))
-print(website.split("//"))
-print(website.split("www"))
-print(website.split(".")[1])
-print(website.split(".")[2])
-
-
-# In[18]:
-
 #----------Classes-----------
 class Employee:
     def __init__(self,first,last,pay):
@@ -297,19 +351,106 @@ class Employee:
     def increse_salary(self):
         self.pay =  int(self.pay + 10)
 
-#creating a new employee
+#Creating Instance Objects
 employee1 = Employee("Frak","Lasagna", 10)
 
 #Accessing Attributes
 print(employee1.email.lower())
 print(employee1.fullname())
-print(employee1.pay)
+print("Salary before the increase in the salary is equal to {}".format(employee1.pay))
 
 #increase the salary
 employee1.increse_salary()
-print(employee1.pay)
+print("Salary after the increase in the salary is equal to {}".format(employee1.pay))
+
+#hiding variable
+class Missle_luncher:
+    __timer = 0 
+    def counter(self):
+        self.__timer =+1
+        print("{} hours before the next strike.".format(self.__timer))
+
+missle1 = Missle_luncher()
+missle1.counter()
+#print(missle1.__timer) #AttributeError: 'Missle_luncher' object has no attribute '__timer'
 
         
+
+        
+
+
+# In[ ]:
+
+#----------Time handling-----------
+
+import time
+import calendar
+
+localtime = time.asctime( time.localtime(time.time()) )
+print ("What time is it? {}".format(localtime))
+cal = calendar.month(2017, 4)
+print(cal)
+
+
+# In[ ]:
+
+#---------Handling errors like a ninja ---------
+
+try: #try this code
+    pass #some code goes here
+except: #if happen this well-know possible exception, please do this
+    pass #some code goes here
+except: #if happen this well-know possible exception, please do this
+    pass #some code goes here
+else: #if happens something else that we are not aware of
+    pass #some code goes here
+finally: #this code will be always execute no matter what
+    pass #some code goes here
+
+
+# In[ ]:
+
+# ----------- Regex ------------
+#Regex is something horrible at the first glance, but it is not that bad at all if few focus your attention for few minutes.
+#(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])
+
+#<\s*a[^>]*>(.*?)<\s*/\s*a>
+
+# https://regexone.com/
+
+
+# In[ ]:
+
+# ----------- Multithreaded Programming ------------
+import _thread
+import time
+
+
+def bomb(name, timer):
+    
+    while timer > 0:
+        #print("{} timer is ticking, {} seconds left\n".format(name, timer))
+        timer -=1
+        time.sleep(1)
+    return print("{} Kabooom!!!\n".format(name))
+
+try:
+    _thread.start_new_thread(bomb, ("bomb1",20,))
+    _thread.start_new_thread(bomb, ("bomb2",15,))
+    _thread.start_new_thread(bomb, ("bomb3",17,))
+    _thread.start_new_thread(bomb, ("bomb4",20,))
+    _thread.start_new_thread(bomb, ("bomb5",15,))
+    _thread.start_new_thread(bomb, ("bomb6",17,))
+except:
+    print("My God, it is full of stars!")
+
+    
+            
+
+
+# In[ ]:
+
+# ----------- Matrix ------------
 
 
 # In[ ]:
