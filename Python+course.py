@@ -46,22 +46,26 @@ print(5 % 1)
 
 
 
-# In[ ]:
+# In[26]:
 
-#------------Assigning Values to Variables and variable type------------
+#-----------Variables------------
 
 #int
 integer_var = 12
+print(type(integer_var))
 
-#double
-double_var = 2.5
+#float
+float_var = 2.5
+print(type(float_var))
 
 #string
-'I am a string' "I am a string"
+string_var = 'I am a string' "I am a string"
+print(type(string_var))
 
 #boolean
 a = 2
 b = 3
+print(type(a==b))
 print(a==b)
 print(a<b)
 print(a>b)
@@ -289,11 +293,14 @@ print([numbers **2 for numbers in range(10)])
 print([numbers **2 for numbers in range(10) if numbers % 2 == 0])
 
 
-# In[ ]:
+# In[20]:
 
 #------------functions------------
 
 def welcome(name = "{error: name not assigned}"):
+    global age
+    age = 34
+    surname = "Black"
     print("hello {}".format(name))
 
 welcome("MindwareLab")
@@ -307,6 +314,8 @@ power(7,37)
 
 print(output)
 
+print(age)
+print(surname)
 
 
 
@@ -379,6 +388,20 @@ missle1.counter()
         
 
 
+# In[8]:
+
+# -----------import libraries and Code introspection ------------
+import pandas
+import numpy
+
+
+#pandas?
+#numpy?
+#dir(pandas) #functionality
+#pandas.DataFrame?
+
+
+
 # In[ ]:
 
 #----------Time handling-----------
@@ -394,7 +417,7 @@ print(cal)
 
 # In[ ]:
 
-#---------Handling errors like a ninja ---------
+#---------Handling errors ---------
 
 try: #try this code
     pass #some code goes here
@@ -419,7 +442,7 @@ finally: #this code will be always execute no matter what
 # https://regexone.com/
 
 
-# In[ ]:
+# In[30]:
 
 # ----------- Multithreaded Programming ------------
 import _thread
@@ -435,22 +458,17 @@ def bomb(name, timer):
     return print("{} Kabooom!!!\n".format(name))
 
 try:
-    _thread.start_new_thread(bomb, ("bomb1",20,))
-    _thread.start_new_thread(bomb, ("bomb2",15,))
-    _thread.start_new_thread(bomb, ("bomb3",17,))
-    _thread.start_new_thread(bomb, ("bomb4",20,))
-    _thread.start_new_thread(bomb, ("bomb5",15,))
-    _thread.start_new_thread(bomb, ("bomb6",17,))
+    _thread.start_new_thread(bomb, ("bomb1",10,))
+    _thread.start_new_thread(bomb, ("bomb2",8,))
+    _thread.start_new_thread(bomb, ("bomb3",6,))
+    _thread.start_new_thread(bomb, ("bomb4",4,))
+    _thread.start_new_thread(bomb, ("bomb5",2,))
+    _thread.start_new_thread(bomb, ("bomb6",8,))
 except:
     print("My God, it is full of stars!")
 
     
             
-
-
-# In[ ]:
-
-# ----------- Matrix ------------
 
 
 # In[ ]:
